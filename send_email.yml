@@ -1,0 +1,28 @@
+---
+
+###############################################################################
+#                                                                             #
+# Ansible Hardening lab                                                       #
+# Target: rhel 7/8                                                            #
+# version: 1.0                                                                #
+#                                                                             #
+#                                                                             #
+# Writen by : Diego A. Zarate (PCS_X86 Team)                                  #
+#                                                                             #
+###############################################################################
+
+
+
+- name: Testing email
+  hosts: localhost
+  tasks: 
+     - name: Send email
+       mail:
+        host: localhost
+        port: 25
+        to: dazarate@ar.ibm.com
+        subject: test
+        body: test
+        attach:
+          - /etc/ansible/playbooks/policies/hardening_reports/m41p-i-ansible-001.az1.ash.cpc.ibm.com-ITSS-HC-Report.html
+...
